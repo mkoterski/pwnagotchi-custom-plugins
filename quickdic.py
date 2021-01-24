@@ -14,7 +14,7 @@ Cracked handshakes stored in handshake folder as [essid].pcap.cracked
 
 class QuickDic(plugins.Plugin):
     __author__ = 'pwnagotchi [at] rossmarks [dot] uk'
-    __version__ = '2.0.0'
+    __version__ = '2.0.1'
     __license__ = 'GPL3'
     __description__ = 'Run a quick dictionary scan against captured handshakes'
     __dependencies__ = {
