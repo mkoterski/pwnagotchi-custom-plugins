@@ -22,7 +22,7 @@ class PwnClock(plugins.Plugin):
         if 'date_format' in self.options:
             self.date_format = self.options['date_format']
         else:
-            self.date_format = "%Y%m%d"
+            self.date_format = "%y-%m-%d"
 
         logging.info('[pwnclock] Plugin loaded.')
 
