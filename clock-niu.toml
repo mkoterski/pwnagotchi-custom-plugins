@@ -1,3 +1,3 @@
-main.plugins.clock.enabled = "true"
-main.plugins.clock.date_format = "%Y%m%d"
-main.plugins.clock.time_format = "%H:%M:%S"
+main.plugins.clock-niu.enabled = "true"
+main.plugins.clock-niu.date_format = "%Y%m%d"
+main.plugins.clock-niu.time_format = "%H:%M:%S"
