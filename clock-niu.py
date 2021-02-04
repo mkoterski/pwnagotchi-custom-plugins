@@ -9,6 +9,9 @@ import toml
 import yaml
 
 
+# TO DO
+# Switch to one line display if GPS and memtemp are enabled.
+
 class PwnClock(plugins.Plugin):
     __author__ = 'https://github.com/LoganMD'
     __version__ = '2.0.3'
@@ -32,6 +35,7 @@ class PwnClock(plugins.Plugin):
         logging.info('[pwnclock] Plugin loaded.')
 
     def on_ui_setup(self, ui):
+        gpsenable = False
         memenable = False
         config_is_toml = True if os.path.exists(
             '/etc/pwnagotchi/config.toml') else False

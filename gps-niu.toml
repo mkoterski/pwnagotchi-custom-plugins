@@ -1,0 +1,3 @@
+main.plugins.gps-niu.enabled = false
+main.plugins.gps-niu.speed = 9600
+main.plugins.gps-niu.device = "/dev/ttyACM0"

@@ -1,0 +1,3 @@
+main.plugins.memtemp-niu.enabled = true
+main.plugins.memtemp-niu.scale = "celsius"
+main.plugins.memtemp-niu.orientation = "vertical"
