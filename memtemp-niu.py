@@ -88,7 +88,7 @@ class MemTemp(plugins.Plugin):
                 "mem",
                 LabeledValue(
                     color=BLACK,
-                    label="mem:",
+                    label="mem:-",
                     value="-",
                     position=v_pos_mem,
                     label_font=fonts.Small,
@@ -100,7 +100,7 @@ class MemTemp(plugins.Plugin):
                 "cpu",
                 LabeledValue(
                     color=BLACK,
-                    label="cpu:",
+                    label="cpu:-",
                     value="-",
                     position=v_pos_cpu,
                     label_font=fonts.Small,
@@ -112,7 +112,7 @@ class MemTemp(plugins.Plugin):
                 "temp",
                 LabeledValue(
                     color=BLACK,
-                    label="temp:",
+                    label="temp:-",
                     value="-",
                     position=v_pos_temp,
                     label_font=fonts.Small,
@@ -130,9 +130,12 @@ class MemTemp(plugins.Plugin):
 # Add modular ui elements for horizontal orientation.
 
 
+# Updated unload function for modular element positioning
     def on_unload(self, ui):
         with ui._lock:
-            ui.remove_element('memtemp')
+            ui.remove_element('mem')
+            ui.remove_element('cpu')
+            ui.remove_element('temp')
 
     def on_ui_update(self, ui):
         if self.options['scale'] == "fahrenheit":
@@ -147,8 +150,16 @@ class MemTemp(plugins.Plugin):
             symbol = "c"
 
         if self.options['orientation'] == "vertical":
-            ui.set('memtemp',
-                   " mem:%s%%\n cpu:%s%%\ntemp:%s%s" % (self.mem_usage(), self.cpu_load(), temp, symbol))
+            # ui.set('memtemp',
+            #        " mem:%s%%\n cpu:%s%%\ntemp:%s%s" % (self.mem_usage(), self.cpu_load(), temp, symbol))
+        
+        # Updated modular element positioning
+
+            ui.set("mem", f" {self.mem_usage()} ")
+            ui.set("cpu", f" {self.cpu_load()} ")
+            ui.set("temp", f" {self.cpu_load()} ")
+        
+
         else:
             # default to horizontal
             ui.set('memtemp',
