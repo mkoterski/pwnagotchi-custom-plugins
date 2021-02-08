@@ -37,7 +37,7 @@ class MemTemp(plugins.Plugin):
     __description__ = 'A plugin that will display memory/cpu usage and temperature'
 
     def on_loaded(self):
-        logging.info("memtemp plugin loaded.")
+        logging.info("memtemp-niu plugin loaded.")
 
     def mem_usage(self):
         return int(pwnagotchi.mem_usage() * 100)
@@ -49,6 +49,16 @@ class MemTemp(plugins.Plugin):
         if ui.is_waveshare_v2():
             h_pos = (180, 80)
             v_pos = (180, 61)
+            # modular element positions added below
+            v_pos_mem = (185, 80)
+            v_pos_cpu = (185, 89)
+            v_pos_temp = (178, 99)
+
+            # below values are not tested/adjusted for horizontal view yet
+            h_pos_mem = (180, 80)
+            h_pos_cpu = (180, 80)
+            h_pos_temp = (180, 80)
+
         elif ui.is_waveshare_v1():
             h_pos = (170, 80)
             v_pos = (170, 61)
@@ -65,15 +75,60 @@ class MemTemp(plugins.Plugin):
             h_pos = (155, 76)
             v_pos = (180, 61)
 
+        #removed label spacing   
+        label_spacing = 0
+
+
         if self.options['orientation'] == "vertical":
             ui.add_element('memtemp', LabeledValue(color=BLACK, label='', value=' mem:-\n cpu:-\ntemp:-',
                                                    position=v_pos,
                                                    label_font=fonts.Small, text_font=fonts.Small))
+
+            ui.add_element(
+                "mem",
+                LabeledValue(
+                    color=BLACK,
+                    label="mem:",
+                    value="-",
+                    position=v_pos_mem,
+                    label_font=fonts.Small,
+                    text_font=fonts.Small,
+                    label_spacing=label_spacing,
+                ),
+            )
+            ui.add_element(
+                "cpu",
+                LabeledValue(
+                    color=BLACK,
+                    label="cpu:",
+                    value="-",
+                    position=v_pos_cpu,
+                    label_font=fonts.Small,
+                    text_font=fonts.Small,
+                    label_spacing=label_spacing,
+                ),
+            )
+            ui.add_element(
+                "temp",
+                LabeledValue(
+                    color=BLACK,
+                    label="temp:",
+                    value="-",
+                    position=v_pos_temp,
+                    label_font=fonts.Small,
+                    text_font=fonts.Small,
+                    label_spacing=label_spacing,
+                ),
+            )
+
         else:
             # default to horizontal
             ui.add_element('memtemp', LabeledValue(color=BLACK, label='', value='mem cpu temp\n - -  -',
                                                    position=h_pos,
                                                    label_font=fonts.Small, text_font=fonts.Small))
+
+# Add modular ui elements for horizontal orientation.
+
 
     def on_unload(self, ui):
         with ui._lock:

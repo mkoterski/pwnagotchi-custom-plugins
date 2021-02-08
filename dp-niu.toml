@@ -1,0 +1,3 @@
+main.plugins.dp-niu.enabled = true
+main.plugins.dp-niu.orientation = "horizontal"
+main.plugins.dp-niu.hide_when_pwnagotchi_in_range = "true"

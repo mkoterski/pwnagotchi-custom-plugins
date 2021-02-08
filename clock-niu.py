@@ -9,8 +9,11 @@ import toml
 import yaml
 
 
+
+# Changes
+# make clock plugin disappear after deactivation
+#
 # TO DO
-# make clock plugin disappear after deactivation without restart
 # Switch to one line display if GPS and memtemp are enabled.
 
 class PwnClock(plugins.Plugin):
