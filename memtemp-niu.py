@@ -32,7 +32,7 @@ import logging
 
 class MemTemp(plugins.Plugin):
     __author__ = 'https://github.com/xenDE'
-    __version__ = '1.0.3.3.1'
+    __version__ = '1.0.3.3.2'
     __license__ = 'GPL3'
     __description__ = 'A plugin that will display memory/cpu usage and temperature'
 
@@ -50,9 +50,9 @@ class MemTemp(plugins.Plugin):
             h_pos = (180, 80)
             v_pos = (180, 61)
             # modular element positions added below
-            v_pos_mem = (185, 70)
-            v_pos_cpu = (185, 80)
-            v_pos_temp = (180, 90)
+            v_pos_mem = (185, 67)
+            v_pos_cpu = (185, 67)
+            v_pos_temp = (180, 66)
 
             # below values are not tested/adjusted for horizontal view yet
             h_pos_mem = (180, 80)
@@ -157,7 +157,7 @@ class MemTemp(plugins.Plugin):
 
             ui.set("mem", f"  {self.mem_usage()}% ")
             ui.set("cpu", f" {self.cpu_load()}% ")
-            ui.set("temp", f" {self.temp + " " + self.symbol} ")
+            ui.set("temp", f" {self.cpu_load()}C ")
         
 
         else:
