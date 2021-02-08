@@ -18,7 +18,7 @@ import yaml
 
 class PwnClock(plugins.Plugin):
     __author__ = 'https://github.com/LoganMD'
-    __version__ = '2.0.4.1'
+    __version__ = '2.0.4.2'
     __license__ = 'GPL3'
     __description__ = 'Clock/Calendar for pwnagotchi'
     __defaults__ = {
@@ -55,7 +55,7 @@ class PwnClock(plugins.Plugin):
                         logging.info(
                             "[pwnclock] memtemp is enabled")
         if ui.is_waveshare_v2():
-            pos = (132, 58) if memenable else (135, 85)
+            pos = (130, 57) if memenable else (130, 57)
             ui.add_element('clock', LabeledValue(color=BLACK, label='', value='-/-/-\n-:--',
                                                  position=pos,
                                                  label_font=fonts.Small, text_font=fonts.Small))
