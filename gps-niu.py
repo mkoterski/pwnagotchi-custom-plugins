@@ -10,7 +10,7 @@ from pwnagotchi.ui.view import BLACK
 
 class GPS(plugins.Plugin):
     __author__ = "evilsocket@gmail.com"
-    __version__ = "1.0.0.2"
+    __version__ = "1.0.0.2.2"
     __license__ = "GPL3"
     __description__ = "Save GPS coordinates whenever an handshake is captured."
 
@@ -57,9 +57,9 @@ class GPS(plugins.Plugin):
     def on_ui_setup(self, ui):
         # add coordinates for other displays
         if ui.is_waveshare_v2():
-            lat_pos = (132, 68)
-            lon_pos = (127, 78)
-            alt_pos = (132, 88)
+            lat_pos = (132, 67)
+            lon_pos = (127, 77)
+            alt_pos = (132, 87)
         elif ui.is_waveshare_v1():
             lat_pos = (130, 70)
             lon_pos = (125, 80)
