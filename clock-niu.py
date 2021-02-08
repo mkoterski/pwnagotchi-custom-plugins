@@ -57,7 +57,7 @@ class PwnClock(plugins.Plugin):
                                                  position=pos,
                                                  label_font=fonts.Small, text_font=fonts.Small))
 
-   def on_unload(self, ui):
+    def on_unload(self, ui):
         with ui._lock:
             ui.remove_element('clock')
 
