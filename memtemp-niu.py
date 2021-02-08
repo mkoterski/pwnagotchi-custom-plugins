@@ -88,7 +88,7 @@ class MemTemp(plugins.Plugin):
                 "mem",
                 LabeledValue(
                     color=BLACK,
-                    label="mem:-",
+                    label="mem:",
                     value=" ",
                     position=v_pos_mem,
                     label_font=fonts.Small,
@@ -100,7 +100,7 @@ class MemTemp(plugins.Plugin):
                 "cpu",
                 LabeledValue(
                     color=BLACK,
-                    label="cpu:-",
+                    label="cpu:",
                     value="",
                     position=v_pos_cpu,
                     label_font=fonts.Small,
@@ -112,7 +112,7 @@ class MemTemp(plugins.Plugin):
                 "temp",
                 LabeledValue(
                     color=BLACK,
-                    label="temp:-",
+                    label="temp:",
                     value="",
                     position=v_pos_temp,
                     label_font=fonts.Small,
