@@ -32,7 +32,7 @@ import logging
 
 class MemTemp(plugins.Plugin):
     __author__ = 'https://github.com/xenDE'
-    __version__ = '1.0.2'
+    __version__ = '1.0.3.1'
     __license__ = 'GPL3'
     __description__ = 'A plugin that will display memory/cpu usage and temperature'
 
@@ -52,7 +52,7 @@ class MemTemp(plugins.Plugin):
             # modular element positions added below
             v_pos_mem = (185, 80)
             v_pos_cpu = (185, 89)
-            v_pos_temp = (178, 99)
+            v_pos_temp = (180, 99)
 
             # below values are not tested/adjusted for horizontal view yet
             h_pos_mem = (180, 80)
@@ -80,16 +80,16 @@ class MemTemp(plugins.Plugin):
 
 
         if self.options['orientation'] == "vertical":
-            ui.add_element('memtemp', LabeledValue(color=BLACK, label='', value=' mem:-\n cpu:-\ntemp:-',
-                                                   position=v_pos,
-                                                   label_font=fonts.Small, text_font=fonts.Small))
+            # ui.add_element('memtemp', LabeledValue(color=BLACK, label='', value=' mem:-\n cpu:-\ntemp:-',
+            #                                        position=v_pos,
+            #                                        label_font=fonts.Small, text_font=fonts.Small))
 
             ui.add_element(
                 "mem",
                 LabeledValue(
                     color=BLACK,
                     label="mem:-",
-                    value="-",
+                    value=" ",
                     position=v_pos_mem,
                     label_font=fonts.Small,
                     text_font=fonts.Small,
@@ -101,7 +101,7 @@ class MemTemp(plugins.Plugin):
                 LabeledValue(
                     color=BLACK,
                     label="cpu:-",
-                    value="-",
+                    value="",
                     position=v_pos_cpu,
                     label_font=fonts.Small,
                     text_font=fonts.Small,
@@ -113,7 +113,7 @@ class MemTemp(plugins.Plugin):
                 LabeledValue(
                     color=BLACK,
                     label="temp:-",
-                    value="-",
+                    value="",
                     position=v_pos_temp,
                     label_font=fonts.Small,
                     text_font=fonts.Small,
