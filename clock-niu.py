@@ -15,7 +15,7 @@ import yaml
 
 class PwnClock(plugins.Plugin):
     __author__ = 'https://github.com/LoganMD'
-    __version__ = '2.0.3'
+    __version__ = '2.0.4'
     __license__ = 'GPL3'
     __description__ = 'Clock/Calendar for pwnagotchi'
     __defaults__ = {
@@ -56,6 +56,10 @@ class PwnClock(plugins.Plugin):
             ui.add_element('clock', LabeledValue(color=BLACK, label='', value='-/-/-\n-:--',
                                                  position=pos,
                                                  label_font=fonts.Small, text_font=fonts.Small))
+
+   def on_unload(self, ui):
+        with ui._lock:
+            ui.remove_element('clock')
 
     def on_ui_update(self, ui):
         now = datetime.datetime.now()
