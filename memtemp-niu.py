@@ -50,9 +50,9 @@ class MemTemp(plugins.Plugin):
             h_pos = (180, 80)
             v_pos = (180, 61)
             # modular element positions added below
-            v_pos_mem = (185, 67)
-            v_pos_cpu = (185, 77)
-            v_pos_temp = (180, 87)
+            v_pos_mem = (190, 67)
+            v_pos_cpu = (190, 77)
+            v_pos_temp = (185, 87)
 
             # below values are not tested/adjusted for horizontal view yet
             h_pos_mem = (180, 80)
