@@ -34,7 +34,7 @@ TEMPLATE = """
 
 class hndshk-dl-all(plugins.Plugin):
     __author__ = 'me@sayakb.com'
-    __version__ = '0.1.0'
+    __version__ = '0.1.0.1'
     __license__ = 'GPL3'
     __description__ = 'Download all handshake captures from web-ui as single zip file.'
 
