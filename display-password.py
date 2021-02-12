@@ -6,6 +6,20 @@
 # Inspired by, and code shamelessly yoinked from
 # the pwnagotchi memtemp.py plugin by https://github.com/xenDE
 #
+# 2021-02-xx overlay bug when another pwnagotchi is detected
+#
+# Approaches
+# easy:
+# - if another pwnagotchi is detected, display password hides
+# - Once peer contact is lost, display password reappears
+#
+# advanced:
+# - have the peer status and cracked passwords alternate every N screen refreshes
+#
+# on_peer_detected - Called when a new peer is detected.
+# and
+# on_peer_lost - Called when a known peer is lost.
+#
 ###############################################################
 from pwnagotchi.ui.components import LabeledValue
 from pwnagotchi.ui.view import BLACK
@@ -18,9 +32,12 @@ import os
 
 class DisplayPassword(plugins.Plugin):
     __author__ = '@nagy_craig'
-    __version__ = '1.0.0'
+    __version__ = '1.0.0.1'
     __license__ = 'GPL3'
     __description__ = 'A plugin to display recently cracked passwords'
+    __defaults__ = {
+        'enabled': False,
+    }
 
     def on_loaded(self):
         logging.info("display-password loaded")
@@ -54,6 +71,17 @@ class DisplayPassword(plugins.Plugin):
             ui.add_element('display-password', LabeledValue(color=BLACK, label='', value='',
                                                    position=h_pos,
                                                    label_font=fonts.Bold, text_font=fonts.Small))
+
+    # called when a new peer is detected
+    def on_peer_detected(agent, peer):
+        #if self._on_event('peer_detected'):
+        ui.remove_element('display-password')
+
+    # called when a known peer is lost
+    def on_peer_lost(agent, peer):
+        last_line = 'tail -n 1 /root/handshakes/wpa-sec.cracked.potfile | awk -F: \'{print $3 " - " $4}\''
+        ui.set('display-password',
+                    "%s" % (os.popen(last_line).read().rstrip()))
 
     def on_unload(self, ui):
         with ui._lock:
